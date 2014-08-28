@@ -1,7 +1,7 @@
 {
-  "name": "chokidar",
-  "description": "A neat wrapper around node.js fs.watch / fs.watchFile.",
-  "version": "0.8.4",
+  "name": "graceful-chokidar",
+  "description": "A fork of chokidar that uses graceful-fs to avoid EMFILE",
+  "version": "0.1.0",
   "keywords": [
     "fs",
     "watch",
@@ -10,19 +10,19 @@
     "watching",
     "file"
   ],
-  "homepage": "https://github.com/paulmillr/chokidar",
+  "homepage": "https://github.com/rich-harris/graceful-chokidar",
   "author": "Paul Miller (http://paulmillr.com)",
   "repository": {
     "type": "git",
-    "url": "https://github.com/paulmillr/chokidar.git"
+    "url": "https://github.com/rich-harris/graceful-chokidar.git"
   },
   "bugs": {
-    "url": "http://github.com/paulmillr/chokidar/issues"
+    "url": "http://github.com/rich-harris/graceful-chokidar/issues"
   },
   "licenses": [
     {
       "type": "MIT",
-      "url": "http://github.com/paulmillr/chokidar/raw/master/README.md"
+      "url": "http://github.com/rich-harris/graceful-chokidar/raw/master/README.md"
     }
   ],
   "scripts": {
@@ -37,7 +37,9 @@
     "rimraf": "~2.2.2"
   },
   "optionalDependencies": {
-    "fsevents": "pipobscure/fsevents#7dcdf9fa3f8956610fd6f69f72c67bace2de7138",
     "recursive-readdir": "0.0.2"
+  },
+  "dependencies": {
+    "graceful-fs": "~3.0.2"
   }
 }

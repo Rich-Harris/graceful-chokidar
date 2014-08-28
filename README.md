@@ -1,3 +1,17 @@
+# graceful-chokidar
+
+Watching files in node.js is a total nightmare. [Chokidar](https://github.com/paulmillr/chokidar) makes the whole experience much less painful, but it's not foolproof - I've often encountered `EMFILE` (too many open files) errors when using it to watch large directories.
+
+This fork simply replaces `require('fs')` with `require('graceful-fs')`. [graceful-fs](https://github.com/isaacs/node-graceful-fs) is a drop-in replacement for the native `fs` that prevents `EMFILE` errors from occurring. It also removes the optional dependency on `fsevents` (the native filesystem events binding), because I've experienced segmentation faults while using it.
+
+Other than that, nothing has changed, and full credit belongs to [Paul Miller](https://github.com/paulmillr).
+
+In theory, using graceful-fs should entail a performance hit. In practice, you won't notice it - my experience is that it's every bit as fast and reliable as the original Chokidar, except that you don't hit `EMFILE`.
+
+
+------------------
+
+
 # Chokidar
 A neat wrapper around node.js fs.watch / fs.watchFile.
 
